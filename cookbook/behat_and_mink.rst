@@ -231,13 +231,13 @@ Let's write a feature to test `Wikipedia <http://www.wikipedia.org/>`_ search ab
 
       Scenario: Searching for a page that does exist
         Given I am on "/wiki/Main_Page"
-        When I fill in "search" with "Behavior Driven Development"
+        When I fill in "searchInput" with "Behavior Driven Development"
         And I press "searchButton"
         Then I should see "agile software development"
 
       Scenario: Searching for a page that does NOT exist
         Given I am on "/wiki/Main_Page"
-        When I fill in "search" with "Glory Driven Development"
+        When I fill in "searchInput" with "Glory Driven Development"
         And I press "searchButton"
         Then I should see "Search results"
 
@@ -307,9 +307,9 @@ through Selenium:
 
     Scenario: Searching for a page with autocompletion
       Given I am on "/wiki/Main_Page"
-      When I fill in "search" with "Behavior Driv"
+      When I fill in "searchInput" with "Behavior Driv"
       And I wait for the suggestion box to appear
-      Then I should see "Behavior Driven Development"
+      Then I should see "Behavior-driven Development"
 
 Now, we need to tell Behat and Mink to run this scenario in a different session
 (with a different browser emulator). Mink comes with a special :doc:`hook </guides/3.hooks>`,
